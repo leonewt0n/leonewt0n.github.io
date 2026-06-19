@@ -78,3 +78,37 @@ title: "My First Post"
 > **Important Note:** Base64 strings are massive blocks of text. It is highly recommended to aggressively compress your images before encoding them. Otherwise, your Markdown file will become incredibly long, sluggish, and difficult to edit inside the browser.
 
 5. **Publish:** Click **Commit changes**. GitHub's background processes will automatically build and publish your new article to your custom domain within a minute or two.
+
+### Phase 4: Google Analytics:
+To add modern Google Analytics (GA4) to the Hacker theme using only the GitHub web interface, you will use the theme's built-in header override feature.
+
+While some newer themes allow you to simply drop an ID into your `_config.yml`, Hacker's default configuration was built for an older version of Google Analytics that is now deprecated. Injecting the raw HTML snippet directly into a custom include file ensures your tracking works perfectly with Google's latest standards.
+
+### Step 1: Get your Tracking Snippet
+
+1. Create a property in your Google Analytics account.
+2. Navigate to your **Web Stream Details**.
+3. Copy the entire **Global site tag (gtag.js)** HTML snippet. It will look something like this:
+```markdown
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+```
+
+
+
+### Step 2: Inject it into GitHub
+
+1. Open your repository on GitHub.
+2. Click **Add file** > **Create new file**.
+3. In the file name box, type `_includes/head-custom-google-analytics.html`.
+*(Note: Typing the forward slash `/` will automatically create the `_includes` folder for you).*
+4. Paste your exact Google Analytics HTML snippet into the main text area.
+5. Click **Commit changes**.
+
+GitHub's background engine will rebuild your site and automatically inject this tracking script into the `<head>` of your homepage and every single blog post you publish. You should start seeing live traffic data in your Google Analytics dashboard within a few minutes of your next deployment.
