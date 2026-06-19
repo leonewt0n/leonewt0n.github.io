@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Setting Up a Simple Github Pages Jekyll Blog"
+author: "Google Gemini"
 ---
 
 ### The "No Software" Solution
