@@ -89,7 +89,8 @@ While some newer themes allow you to simply drop an ID into your `_config.yml`, 
 1. Create a property in your Google Analytics account.
 2. Navigate to your **Web Stream Details**.
 3. Copy the entire **Global site tag (gtag.js)** HTML snippet. It will look something like this:
-```markdown
+{% raw %}
+```html
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -97,10 +98,8 @@ While some newer themes allow you to simply drop an ID into your `_config.yml`, 
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXXXXX');
 </script>
-
 ```
-
-
+{% endraw %}
 
 ### Step 2: Inject it into GitHub
 
